@@ -161,8 +161,15 @@ void execution_function2(int array[], int index_array2[])
 //다. Monte Carlo 알고리즘으로 추정치 계산함수
 void execution_function3(int array[])
 {
+	int sum = 0;
 	printf("\n +++++++++ 3. Monte Carlo [Sum of Subsets] : Start +++++++++\n");
-	printf(" Monte Carlo estimate value = %d", estimate_subsetOfSum(array, 5));
+	printf("20번 돌려서 나온 값의 평균을 추정치로 계산합니다.\n");
+	for (int i = 0; i < 20; i++)
+	{
+		sum += estimate_subsetOfSum(array, 5);
+	}
+	sum = sum / 20;
+	printf(" Monte Carlo estimate value = %d", sum);
 	printf("\n +++++++++ 3. Monte Carlo [Sum of Subsets] : END +++++++++\n\n");
 }
 
