@@ -33,8 +33,21 @@ int promise(int array[], int weight, int total, int index)
 // index = 가장 최고인덱스 - 1 
 void subsetOfSum(int array[], int index_array[], int index, int sum)
 {
-	if (sum == 0)
+	//교수님 께서 대략 4~5개 프로세스 과정을 출력하라고 지시하셨음.
+	if (index >= 4)
+	{
+		printf("현재 검사 중인 합집합 원소들\n");
 		print_matrix_index(index_array, array);
+	}
+		
+	if (sum == 0)
+	{
+		printf("\n---------------------------------------------\n");
+		printf("합이 %d가 되는 합집합 출력\n", SUM_VALUE);
+		print_matrix_index(index_array, array);
+		printf("\n");
+		printf("---------------------------------------------\n");
+	}
 	//이 조건이 promising이 됨. 
 	else if (sum < 0 || index == -1)
 		return;
@@ -68,10 +81,25 @@ void subsetOfSum2(int array[], int index_array[], int index, int weight, int tot
 	else
 		promise = 0;
 
+	//교수님 께서 대략 4~5개 프로세스 과정을 출력하라고 지시하셨음.
+	if (index < 3)
+	{
+		printf("현재 검사 중인 합집합 원소들\n");
+		print_matrix_index(index_array, array);
+	}
+
+
 	if (promise)
 	{
 		if (weight == SUM_VALUE)
+		{
+			printf("\n---------------------------------------------\n");
+			printf("합이 %d가 되는 합집합 출력\n", SUM_VALUE);
 			print_matrix_index(index_array, array);
+			printf("\n");
+			printf("---------------------------------------------\n");
+		}
+			
 		else
 		{
 			index++;
